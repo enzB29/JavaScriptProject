@@ -1,0 +1,28 @@
+{
+  "name": "javascriptproject",
+  "version": "1.0.0",
+  "description": "Corentin Detournay and Enzo Bordet's Project1",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enzB29/JavaScriptProject.git"
+  },
+  "author": "Corentin Detournay and Enzo Bordet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enzB29/JavaScriptProject/issues"
+  },
+  "homepage": "https://github.com/enzB29/JavaScriptProject#readme",
+  "dependencies": {
+    "@prisma/client": "^6.0.0",
+    "express": "^4.21.1",
+    "hbs": "^4.2.0",
+    "nodemon": "^3.1.7",
+    "prisma": "^6.0.0",
+    "sqlite3": "^5.1.7"
+  }
+}
