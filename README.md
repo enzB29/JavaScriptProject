@@ -22,3 +22,4 @@ npm start
 
 -->
 
+Simply launch the project with 'npm start' in a cmd terminal
