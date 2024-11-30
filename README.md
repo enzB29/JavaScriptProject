@@ -16,9 +16,6 @@ npx prisma generate
 // pour installer HBS
 npm install hbs
 
-// pour voir la base
-npx prisma studio
-
 // pour lancer le projet avec nodemon
 npm start
 

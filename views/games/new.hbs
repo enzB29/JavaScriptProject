@@ -1,0 +1,28 @@
+<h1>Add a new game</h1>
+
+<form action="/games" method="POST">
+    <label for="name">Game Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="releaseDate">Release Date</label>
+    <input type="date" id="releaseDate" name="releaseDate" required>
+
+    <label for="genre">Genre</label>
+    <select id="genre" name="genreId">
+        {{#each genres}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+    <label for="editor">Editor</label>
+    <select id="editor" name="editorId">
+        {{#each editors}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+    <button type="submit">Add game</button>
+</form>
