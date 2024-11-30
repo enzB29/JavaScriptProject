@@ -1,13 +1,12 @@
 const express = require("express");
-const hbs = require("hbs");
-const path = require("path");
-const bodyParser = require("body-parser");
 const {PrismaClient} = require("@prisma/client");
+const bodyParser = require("body-parser");
+const path = require("path");
+const hbs = require("hbs");
 
-const prisma = new PrismaClient();
 const app = express();
+const prisma = new PrismaClient();
 const PORT = 3000;
-
 
 
 
