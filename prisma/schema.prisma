@@ -27,12 +27,12 @@ model Game {
 
 model Genre {
   id Int @id @default(autoincrement()) // primary key
-  name String
+  name String @unique
   games Game[] // links Genre to Game
 }
 
 model Editor {
   id Int @id @default(autoincrement()) // primary key
-  name String
+  name String @unique
   games Game[] // links Editor to Game
 }
