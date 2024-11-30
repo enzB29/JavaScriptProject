@@ -13,6 +13,9 @@ npx prisma init
 npx prisma migrate dev --name init
 npx prisma generate
 
+// pour installer HBS
+npm install hbs
+
 // pour voir la base
 npx prisma studio
 
