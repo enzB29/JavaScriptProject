@@ -13,7 +13,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Jeux{
-  id  Int @id @default(autoincrement())
-  
+model Game {
+  id Int @id @default(autoincrement()) // primary key
+  name String
+  description String
+  releaseDate DateTime
+  featured   Boolean   @default(false) // mis en avant
+  genreId Int // foreign key
+  genre Genre @relation(fields: [genreId], references: [id]) // reference
+  editorId Int // foreign key
+  editor Editor @relation(fields: [editorId], references: [id]) // reference
+}
+
+model Genre {
+  id Int @id @default(autoincrement()) // primary key
+  name String
+  games Game[] // links Genre to Game
+}
+
+model Editor {
+  id Int @id @default(autoincrement()) // primary key
+  name String
+  games Game[] // links Editor to Game
 }
