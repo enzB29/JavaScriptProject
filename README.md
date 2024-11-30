@@ -22,5 +22,5 @@ npm start
 
 -->
 
-Simply launch the project with 'npm start' in a cmd terminal<br>
-Then go to 'localhost:3000'
+Simply launch the project with `npm start` in a cmd terminal<br>
+Then open [localhost:3000](localhost:3000)
