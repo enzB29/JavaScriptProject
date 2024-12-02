@@ -1,0 +1,10 @@
+<ul id="game-list">
+    {{#each games}}
+        <li id="game-{{id}}">
+            <a href="/games/{{id}}">{{name}}</a>
+            <form action="/games/{{id}}/delete" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {{/each}}
+</ul>

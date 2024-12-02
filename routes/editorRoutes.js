@@ -36,6 +36,7 @@ app.post("/:id/delete", async (req, res) => {
     await prisma.editor.delete({
         where: { id: parseInt(id) },
     });
+
     res.redirect('/editors');
 });
 

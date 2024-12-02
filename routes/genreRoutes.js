@@ -14,5 +14,14 @@ app.get("/", async (req, res) => {
 });
 
 
+app.get("/list", async (req, res) => {
+    const games = await prisma.game.findMany();
+    res.render("genres/list", {
+        games,
+    });
+});
+
+
+
 
 module.exports = app;
