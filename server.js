@@ -1,10 +1,12 @@
 const express = require("express");
+const { PrismaClient } = require("@prisma/client");
 const bodyParser = require("body-parser");
 const path = require("path");
 const hbs = require("hbs");
 
 const app = express();
 const PORT = 3000;
+const prisma = new PrismaClient();
 
 // we'll use different routes so 'server.js' remains short
 const gameRoutes = require("./routes/gameRoutes");
@@ -26,8 +28,13 @@ app.use("/genres", genreRoutes);
 
 // homepage
 app.get("/", async (req, res) => {
-    res.render("index");
+    const featuredGames = await prisma.game.findMany({
+        where: { featured: true },
+    });
+
+    res.render("index", { featuredGames });
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

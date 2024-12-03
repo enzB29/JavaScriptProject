@@ -1,11 +1,4 @@
-MUST DO (4/14)
-
-    Afficher la liste des jeux mis en avant sur la page d'accueil
-    Possibilité d'afficher le jeux sur la page d'accueil (mise en avant)
-        -Bouton à côté de chaque jeu pour le sélectionner ou non
-        -S'il est sélectionné, il est mis en avant (featured)
-        -Sur la page d'accueil, afficher une liste de jeux dont l'attribut "featured" est à true"
-
+MUST DO (0/14)
 
     A chaque fois qu'on affiche un élément dans une liste ou dans le détail d'un autre élément, il faut ajouter un lien vers cet élément. (exemple : on peut aller à la liste des jeux d'un genre depuis la page de détail de ce jeu).
 
@@ -13,9 +6,11 @@ MUST DO (4/14)
 
     Faire un UML
 
+    CSS
+
     
 
-DONE (12/14)
+DONE (14/14)
 
     Afficher la liste de tous les jeux
     Suppression d'un jeu
@@ -28,5 +23,7 @@ DONE (12/14)
     Modification d'un jeu (nom, description, date de sortie, genre, éditeur)
     Afficher la liste des jeux d'un genre
     Afficher la liste des jeux d'un éditeur
+    Afficher la liste des jeux mis en avant sur la page d'accueil
+    Possibilité d'afficher le jeux sur la page d'accueil (mise en avant)
     Création d'un jeu
         -Si l'éditeur n'existe pas, l'ajouter à la base
