@@ -15,7 +15,7 @@ app.get("/", async (req, res) => {
 
 
 
-app.get('/new', async (req, res) => { 
+app.get('/new', async (req, res) => {
     res.render("editors/new");
 });
 
@@ -31,17 +31,50 @@ app.post("/", async (req, res) => {
 
 
 
+app.get("/:id/edit", async (req, res) => {
+    const { id } = req.params;
+    const editorId = parseInt(id);
+    const editor = await prisma.editor.findUnique({
+        where: { id: editorId },
+    });
+
+    res.render("editors/edit", { editor });
+});
+
+
+
+app.post("/:id/edit", async (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+    const editorId = parseInt(id);
+
+    await prisma.editor.update({
+        where: { id: editorId },
+        data: { name },
+    });
+
+    res.redirect("/editors");
+
+});
+
+
+
 app.post("/:id/delete", async (req, res) => {
     const { id } = req.params;
     const editorId = parseInt(id);
 
     await prisma.game.deleteMany({
-        where : {editorId : editorId}
-    })//delete le tous les jeux de l'éditor si l'éditor est delete.
-    await prisma.editor.delete({
-        where: { id: parseInt(id) },
+        where: {
+            editorId: editorId,
+        },
     });
-    
+
+    await prisma.editor.delete({
+        where: {
+            id: editorId,
+        },
+    });
+
     res.redirect('/editors');
 });
 

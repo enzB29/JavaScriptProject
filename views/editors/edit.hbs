@@ -1,0 +1,10 @@
+<h1>Edit editor</h1>
+
+<form action="/editors/{{editor.id}}/edit" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{editor.name}}" required />
+    <button type="submit">Save</button>
+    <a href="/editors">
+        <button type="button">Cancel</button>
+    </a>
+</form>
