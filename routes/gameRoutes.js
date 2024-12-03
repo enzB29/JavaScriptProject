@@ -15,9 +15,20 @@ app.get("/", async (req, res) => {
 
 
 
+app.get("/:id/details", async (req, res) => {
+    const { id } = req.params;
+    const gameId = parseInt(id);
+
+    const game = await prisma.game.findUnique({ where: { id: gameId } });
+
+    res.render("games/details", { game });
+});
+
+
+
 app.get('/new', async (req, res) => {
     // to fetch genres and editors (useful for the form)
-    const genres = await prisma.genre.findMany(); 
+    const genres = await prisma.genre.findMany();
     const editors = await prisma.editor.findMany();
 
     res.render("games/new", {

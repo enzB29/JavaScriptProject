@@ -1,9 +1,9 @@
-<h1>List of games</h1>
+<h1>List of Games</h1>
 
 <ul id="game-list">
     {{#each games}}
         <li id="game-{{id}}">
-            <a href="/games/{{id}}">{{name}}</a>
+            <a href="/games/{{id}}/details">{{name}}</a>
             <form action="/games/{{id}}/delete" method="POST" style="display:inline;">
                 <button type="submit">Delete</button>
             </form>
@@ -12,5 +12,5 @@
 </ul>
 
 <a href="/games/new">
-    <button>Add game</button>
+    <button>Add Game</button>
 </a>
