@@ -1,0 +1,182 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header h2 {
+    margin: 0;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Layout Styles */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #555;
+}
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 120px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a button {
+    background-color: #f44336;
+}
+
+a button:hover {
+    background-color: #e53935;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+li a {
+    color: #333;
+    font-size: 18px;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Game List Specific Styles */
+#game-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#game-list form {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#game-list label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Featured Game Checkbox */
+input[type="checkbox"] {
+    margin: 0 5px;
+}
+
+/* Buttons - Add Game, Add Editor, etc */
+button[type="button"], 
+button[type="submit"] {
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 8px 12px;
+    }
+
+    #game-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
