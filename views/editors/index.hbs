@@ -3,7 +3,9 @@
 <ul id="editor-list">
     {{#each editors}}
         <li id="editor-{{id}}">
-            <span class="editor-name">{{name}}</span>
+            <a href="/editors/{{id}}/games" class="editor-name">
+                {{name}}
+            </a>
             <form action="/editors/{{id}}/delete" method="POST" style="display:inline;">
                 <button type="submit">Delete</button>
             </form>
