@@ -60,7 +60,7 @@ app.get("/:id/edit", async (req, res) => {
         isSelected: editor.id === game.editorId
     }));
 
-    res.render("games/edit", { 
+    res.render("games/edit", {
         game,
         genres: genresWithSelectedFlag,
         editors: editorsWithSelectedFlag
@@ -93,6 +93,19 @@ app.post("/:id/edit", async (req, res) => {
 });
 
 
+// Route to update the "featured" status of a game
+app.post("/:id/updateFeatured", async (req, res) => {
+    const { id } = req.params;
+    const featured = req.body.featured === "true";
+
+    await prisma.game.update({
+        where: { id: parseInt(id) },
+        data: { featured },
+    });
+
+    res.redirect("/games");
+
+});
 
 
 app.get('/new', async (req, res) => {

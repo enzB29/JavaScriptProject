@@ -4,3 +4,12 @@
     <a href="/genres">See genres</a>
     <a href="/editors">See editors</a>
 </div>
+
+<h2>Featured Games</h2>
+<ul>
+    {{#each featuredGames}}
+        <li>
+            <a href="/games/{{id}}/details">{{name}}</a>
+        </li>
+    {{/each}}
+</ul>

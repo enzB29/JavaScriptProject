@@ -4,6 +4,15 @@
     {{#each games}}
         <li id="game-{{id}}">
             <a href="/games/{{id}}/details">{{name}}</a>
+            
+            <!-- Form with checkbox to toggle 'featured' -->
+            <form action="/games/{{id}}/updateFeatured" method="POST" style="display:inline;">
+                <label>
+                    Featured:
+                    <input type="checkbox" name="featured" value="true" {{#if featured}}checked{{/if}} onchange="this.form.submit();">
+                </label>
+            </form>
+
             <form action="/games/{{id}}/delete" method="POST" style="display:inline;">
                 <button type="submit">Delete</button>
             </form>
