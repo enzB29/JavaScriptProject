@@ -19,8 +19,13 @@ app.get("/:id/details", async (req, res) => {
     const { id } = req.params;
     const gameId = parseInt(id);
 
-    const game = await prisma.game.findUnique({ where: { id: gameId } });
-
+    const game = await prisma.game.findUnique({
+        where: { id: gameId },
+        include: {
+            genre: true,
+            editor: true
+        }
+    });
     res.render("games/details", { game });
 });
 
