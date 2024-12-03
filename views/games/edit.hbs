@@ -1,0 +1,35 @@
+<h1>Edit Game: {{game.name}}</h1>
+
+<form action="/games/{{game.id}}/edit" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="{{game.name}}" required>
+    <br>
+
+    <label for="description">Description:</label>
+    <textarea name="description" required>{{game.description}}</textarea>
+    <br>
+
+    <label for="releaseDate">Release Date:</label>
+    <input type="date" name="releaseDate" value="{{game.releaseDate}}" required>
+    <br>
+
+    <label for="genreId">Genre:</label>
+    <select name="genreId" required>
+        {{#each genres}}
+            <option value="{{id}}" {{#if isSelected}}selected{{/if}}>{{name}}</option>
+        {{/each}}
+    </select>
+    <br>
+
+    <label for="editorId">Editor:</label>
+    <select name="editorId" required>
+        {{#each editors}}
+            <option value="{{id}}" {{#if isSelected}}selected{{/if}}>{{name}}</option>
+        {{/each}}
+    </select>
+    <br>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<a href="/games/{{game.id}}/details">Cancel</a>
