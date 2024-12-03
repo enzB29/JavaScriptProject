@@ -6,9 +6,6 @@ MUST DO (5/14)
         -S'il est sélectionné, il est mis en avant (featured)
         -Sur la page d'accueil, afficher une liste de jeux dont l'attribut "featured" est à true"
 
-    Modification d'un jeu (nom, description, date de sortie, genre, éditeur)
-        -Bouton modifier à côté de chaque jeu avec les champs de préremplis et modifiables + enregistrement
-
     Afficher la liste des jeux d'un genre
         -Clic sur un genre affiche ses jeux sur le côté
 
@@ -35,5 +32,6 @@ DONE (9/14)
     Suppression d'un éditeur    
     Afficher le détail d'un jeu (avec ses infos, son genre et son éditeur)
     Modification d'un éditeur
+    Modification d'un jeu (nom, description, date de sortie, genre, éditeur)
     Création d'un jeu
         -Si l'éditeur n'existe pas, l'ajouter à la base
