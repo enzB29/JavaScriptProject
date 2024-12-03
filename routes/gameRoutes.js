@@ -6,6 +6,7 @@ const prisma = new PrismaClient();
 
 
 
+// games route
 app.get("/", async (req, res) => {
     const games = await prisma.game.findMany();
     res.render("games/index", {
@@ -13,8 +14,39 @@ app.get("/", async (req, res) => {
     });
 });
 
+app.post("/", async (req, res) => {
+    const { name, description, releaseDate, genreId, editorId } = req.body;
+    await prisma.game.create({
+        data: {
+            name,
+            description,
+            releaseDate: new Date(releaseDate),
+            genre: {
+                connect: { id: parseInt(genreId) }
+            },
+            editor: {
+                connect: { id: parseInt(editorId) }
+            }
+        }
+    });
+    res.redirect("/games");
+});
 
 
+// games/new route
+app.get('/new', async (req, res) => {
+    // to fetch genres and editors (useful for the form)
+    const genres = await prisma.genre.findMany();
+    const editors = await prisma.editor.findMany();
+
+    res.render("games/new", {
+        genres: genres,
+        editors: editors
+    });
+});
+
+
+// games/id/details route
 app.get("/:id/details", async (req, res) => {
     const { id } = req.params;
     const gameId = parseInt(id);
@@ -30,6 +62,7 @@ app.get("/:id/details", async (req, res) => {
 });
 
 
+// games/id/edit route
 app.get("/:id/edit", async (req, res) => {
     const { id } = req.params;
     const gameId = parseInt(id);
@@ -45,16 +78,11 @@ app.get("/:id/edit", async (req, res) => {
     const genres = await prisma.genre.findMany();
     const editors = await prisma.editor.findMany();
 
-    if (!game) {
-        return res.status(404).send("Game not found");
-    }
-
-    // Add selected flags for each genre and editor
+    // add selected flags for each genre and editor
     const genresWithSelectedFlag = genres.map(genre => ({
         ...genre,
         isSelected: genre.id === game.genreId
     }));
-
     const editorsWithSelectedFlag = editors.map(editor => ({
         ...editor,
         isSelected: editor.id === game.editorId
@@ -66,7 +94,6 @@ app.get("/:id/edit", async (req, res) => {
         editors: editorsWithSelectedFlag
     });
 });
-
 
 app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;
@@ -93,54 +120,25 @@ app.post("/:id/edit", async (req, res) => {
 });
 
 
-// Route to update the "featured" status of a game
+// games/id/updateFeatured route
 app.post("/:id/updateFeatured", async (req, res) => {
     const { id } = req.params;
-    const featured = req.body.featured === "true";
+    const gameId = parseInt(id);
 
-    await prisma.game.update({
-        where: { id: parseInt(id) },
-        data: { featured },
+    const game = await prisma.game.findUnique({
+        where: { id: gameId }
+    });
+
+    const updatedGame = await prisma.game.update({
+        where: { id: gameId },
+        data: { featured: !game.featured }
     });
 
     res.redirect("/games");
-
 });
 
 
-app.get('/new', async (req, res) => {
-    // to fetch genres and editors (useful for the form)
-    const genres = await prisma.genre.findMany();
-    const editors = await prisma.editor.findMany();
-
-    res.render("games/new", {
-        genres: genres,
-        editors: editors
-    });
-});
-
-
-
-app.post("/", async (req, res) => {
-    const { name, description, releaseDate, genreId, editorId } = req.body;
-    await prisma.game.create({
-        data: {
-            name,
-            description,
-            releaseDate: new Date(releaseDate),
-            genre: {
-                connect: { id: parseInt(genreId) }
-            },
-            editor: {
-                connect: { id: parseInt(editorId) }
-            }
-        }
-    });
-    res.redirect("/games");
-});
-
-
-
+// games/id/delete route
 app.post("/:id/delete", async (req, res) => {
     const { id } = req.params;
     await prisma.game.delete({

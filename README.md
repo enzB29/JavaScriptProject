@@ -22,6 +22,9 @@ npm start
 // pour vider la bdd
 npx prisma migrate reset
 
+// pour insérer la seed (valeurs de base)
+npm run seed
+
 -->
 
 Simply launch the project with `npm start` in a cmd terminal<br>
