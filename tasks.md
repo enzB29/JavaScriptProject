@@ -1,4 +1,4 @@
-MUST DO (5/14)
+MUST DO (4/14)
 
     Afficher la liste des jeux mis en avant sur la page d'accueil
     Possibilité d'afficher le jeux sur la page d'accueil (mise en avant)
@@ -22,7 +22,7 @@ MUST DO (5/14)
 
     
 
-DONE (9/14)
+DONE (10/14)
 
     Afficher la liste de tous les jeux
     Suppression d'un jeu
