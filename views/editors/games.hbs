@@ -1,0 +1,11 @@
+<h1>Games by {{editor.name}}</h1>
+
+<ul>
+    {{#each editor.games}}
+        <li>
+            <a href="/games/{{id}}">{{name}}</a>
+        </li>
+    {{/each}}
+</ul>
+
+<a href="/editors">Back to Editors List</a>

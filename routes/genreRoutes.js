@@ -14,27 +14,18 @@ app.get("/", async (req, res) => {
 });
 
 
-app.get("/list", async (req, res) => {
-    try {
-        const genreId = parseInt(req.query.genreId, 10); // Ensure it's coming from the query string
-        if (isNaN(genreId)) {
-            return res.status(400).send("Invalid genreId");
-        }
 
-        const games = await prisma.game.findMany({
-            where: { genreId },
-        });
+app.get("/:id/games", async (req, res) => {
+    const { id } = req.params;
 
-        // Render with the games array even if it's empty
-        res.render("genres/list", { games });
-    } catch (error) {
-        console.error("Error fetching games:", error);
-        res.status(500).send("Internal Server Error");
-    }
+    const genreId = parseInt(id);
+    const genre = await prisma.genre.findUnique({
+        where: { id: genreId },
+        include: { games: true }
+    });
+
+    res.render("genres/games", { genre });
 });
-
-
-
 
 
 

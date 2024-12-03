@@ -30,6 +30,20 @@ app.post("/", async (req, res) => {
 });
 
 
+app.get("/:id/games", async (req, res) => {
+    const { id } = req.params;
+    const editorId = parseInt(id);
+
+    const editor = await prisma.editor.findUnique({
+        where: { id: editorId },
+        include: { games: true }
+    });
+
+    res.render("editors/games", { editor });
+});
+
+
+
 
 app.get("/:id/edit", async (req, res) => {
     const { id } = req.params;

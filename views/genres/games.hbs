@@ -1,0 +1,11 @@
+<h1>Games in Genre: {{genre.name}}</h1>
+
+<ul>
+    {{#each genre.games}}
+        <li>
+            <a href="/games/{{id}}/details">{{name}}</a>
+        </li>
+    {{/each}}
+</ul>
+
+<a href="/genres">Back to Genre List</a>
