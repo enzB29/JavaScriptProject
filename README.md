@@ -19,6 +19,8 @@ npm install hbs
 // pour lancer le projet avec nodemon
 npm start
 
+// pour vider la bdd
+npx prisma migrate reset
 
 -->
 

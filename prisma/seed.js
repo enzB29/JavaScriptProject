@@ -22,6 +22,23 @@ async function seed() {
       console.log(`Genre created: ${newGenre.name}`);
     }
   }
+
+
+  const editorNames = ['Epic Games', 'Electronic Arts', 'Blizzard Entertainment', 'Bandai Namco'];
+
+  for (const name of editorNames) {
+    const existingEditor = await prisma.editor.findUnique({
+      where: { name: name }
+    });
+
+    // if editor doesn't exist, we create it
+    if (!existingEditor) {
+      const newEditor = await prisma.editor.create({
+        data: { name: name }
+      });
+      console.log(`Editor created: ${newEditor.name}`);
+    }
+  }
 }
 
 seed() // runs the function
