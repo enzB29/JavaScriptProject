@@ -7,6 +7,10 @@
             <form action="/games/{{id}}/delete" method="POST" style="display:inline;">
                 <button type="submit">Delete</button>
             </form>
+            <form>
+                <input type="checkbox" class="checkboxFav" data-game-id="{{id}}">
+                <label for="checkboxFav">Put in favourite</label>
+            </form>
         </li>
     {{/each}}
 </ul>
@@ -14,3 +18,6 @@
 <a href="/games/new">
     <button>Add game</button>
 </a>
+
+
+

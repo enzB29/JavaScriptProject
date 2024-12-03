@@ -4,3 +4,22 @@
     <a href="/genres">See genres</a>
     <a href="/editors">See editors</a>
 </div>
+<div id="FavContainer">
+    
+</div>
+
+<script>
+    console.log(document.querySelector("#FavContainer"));
+    document.querySelectorAll(".checkboxFav").forEach(checkbox => {
+        checkbox.addEventListener("change", function (event) {
+            const gameId = event.target.getAttribute("data-game-id");
+            const gameItem = document.getElementById(`game-${gameId}`);
+            
+            const favContainer = document.querySelector("#FavContainer #fav-game-list");
+            
+            if (event.target.checked) {
+                favContainer.appendChild(gameItem);
+            }
+        });
+    });
+</script>
