@@ -25,6 +25,70 @@ app.get("/:id/details", async (req, res) => {
 });
 
 
+app.get("/:id/edit", async (req, res) => {
+    const { id } = req.params;
+    const gameId = parseInt(id);
+
+    const game = await prisma.game.findUnique({
+        where: { id: gameId },
+        include: {
+            genre: true,
+            editor: true
+        }
+    });
+
+    const genres = await prisma.genre.findMany();
+    const editors = await prisma.editor.findMany();
+
+    if (!game) {
+        return res.status(404).send("Game not found");
+    }
+
+    // Add selected flags for each genre and editor
+    const genresWithSelectedFlag = genres.map(genre => ({
+        ...genre,
+        isSelected: genre.id === game.genreId
+    }));
+
+    const editorsWithSelectedFlag = editors.map(editor => ({
+        ...editor,
+        isSelected: editor.id === game.editorId
+    }));
+
+    res.render("games/edit", { 
+        game,
+        genres: genresWithSelectedFlag,
+        editors: editorsWithSelectedFlag
+    });
+});
+
+
+app.post("/:id/edit", async (req, res) => {
+    const { id } = req.params;
+    const { name, description, releaseDate, genreId, editorId } = req.body;
+
+    const gameId = parseInt(id);
+
+    const updatedGame = await prisma.game.update({
+        where: { id: gameId },
+        data: {
+            name,
+            description,
+            releaseDate: new Date(releaseDate),
+            genre: {
+                connect: { id: parseInt(genreId) }
+            },
+            editor: {
+                connect: { id: parseInt(editorId) }
+            }
+        }
+    });
+
+    res.redirect(`/games/${gameId}/details`);
+});
+
+
+
 
 app.get('/new', async (req, res) => {
     // to fetch genres and editors (useful for the form)
