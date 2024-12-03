@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 hbs.registerPartials(path.join(__dirname, "views/partials"));
+app.use(express.static('public'));
 
 // routes use
 app.use("/games", gameRoutes);
