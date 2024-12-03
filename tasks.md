@@ -1,4 +1,4 @@
-TODO (7/14)
+TODO (8/14)
 
     Afficher la liste des jeux mis en avant sur la page d'accueil
     Possibilité d'afficher le jeux sur la page d'accueil (mise en avant)
@@ -30,7 +30,7 @@ TODO (7/14)
     Toutes les listes sont triées par ordre alphabétique.
 
 
-DONE (7/14)
+DONE (6/14)
 
     Afficher la liste de tous les jeux
     Suppression d'un jeu
