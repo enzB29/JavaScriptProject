@@ -1,10 +1,9 @@
 MUST DO (0/14)
 
-    A chaque fois qu'on affiche un élément dans une liste ou dans le détail d'un autre élément, il faut ajouter un lien vers cet élément. (exemple : on peut aller à la liste des jeux d'un genre depuis la page de détail de ce jeu).
+    A chaque fois qu'on affiche un élément dans une liste ou dans le détail d'un autre élément, il faut ajouter un lien vers cet élément.
+        (exemple : on peut aller à la liste des jeux d'un genre depuis la page de détail de ce jeu).
 
     Toutes les listes sont triées par ordre alphabétique.
-
-    Faire un UML
 
     CSS
 
