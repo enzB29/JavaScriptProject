@@ -1,11 +1,25 @@
-<h1>{{game.name}}</h1>
-<p><strong>Description:</strong> {{game.description}}</p>
-<p><strong>Release Date:</strong> {{game.releaseDate}}</p>
-<p><strong>Genre:</strong> {{game.genre.name}}</p>
-<p><strong>Editor:</strong> {{game.editor.name}}</p>
+<div class="game-details-wrapper">
+    <h1 class="game-title">{{game.name}}</h1>
 
-<a href="/games/{{game.id}}/edit">
-    <button>Modify</button>
-</a>
+    <div class="game-details">
+        <p class="game-info">
+            <strong>Description:</strong> {{game.description}}
+        </p>
+        <p class="game-info">
+            <strong>Release date:</strong> {{game.releaseDate}}
+        </p>
+        <p class="game-info">
+            <strong>Genre:</strong> {{game.genre.name}}
+        </p>
+        <p class="game-info">
+            <strong>Editor:</strong> {{game.editor.name}}
+        </p>
+    </div>
 
-<a href="/games">Back to Games</a>
+    <div class="game-actions">
+        <a href="/games/{{game.id}}/edit">
+            <button class="modify-btn">Modify</button>
+        </a>
+        <a href="/games" class="back-link">Back to games</a>
+    </div>
+</div>

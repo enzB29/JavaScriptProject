@@ -5,7 +5,7 @@ const app = express();
 const prisma = new PrismaClient();
 
 
-
+// genres route
 app.get("/", async (req, res) => {
     const genres = await prisma.genre.findMany();
     res.render("genres/index", {
@@ -13,8 +13,7 @@ app.get("/", async (req, res) => {
     });
 });
 
-
-
+// genres/id/games route
 app.get("/:id/games", async (req, res) => {
     const { id } = req.params;
 

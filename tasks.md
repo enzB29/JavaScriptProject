@@ -1,16 +1,13 @@
-MUST DO (0/14)
+MUST DO
 
     A chaque fois qu'on affiche un élément dans une liste ou dans le détail d'un autre élément, il faut ajouter un lien vers cet élément. (exemple : on peut aller à la liste des jeux d'un genre depuis la page de détail de ce jeu).
 
     Toutes les listes sont triées par ordre alphabétique.
-
-    Faire un UML
-
-    CSS
-
+    
+    README
     
 
-DONE (14/14)
+DONE
 
     Afficher la liste de tous les jeux
     Suppression d'un jeu
@@ -27,3 +24,6 @@ DONE (14/14)
     Possibilité d'afficher le jeux sur la page d'accueil (mise en avant)
     Création d'un jeu
         -Si l'éditeur n'existe pas, l'ajouter à la base
+
+
+    CSS

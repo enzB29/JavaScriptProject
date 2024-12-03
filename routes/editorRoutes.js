@@ -6,20 +6,13 @@ const prisma = new PrismaClient();
 
 
 
+// editors route
 app.get("/", async (req, res) => {
     const editors = await prisma.editor.findMany();
     res.render("editors/index", {
         editors,
     });
 });
-
-
-
-app.get('/new', async (req, res) => {
-    res.render("editors/new");
-});
-
-
 
 app.post("/", async (req, res) => {
     const { name } = req.body;
@@ -30,6 +23,13 @@ app.post("/", async (req, res) => {
 });
 
 
+// editors/new route
+app.get('/new', async (req, res) => {
+    res.render("editors/new");
+});
+
+
+// editors/id/games route
 app.get("/:id/games", async (req, res) => {
     const { id } = req.params;
     const editorId = parseInt(id);
@@ -43,8 +43,7 @@ app.get("/:id/games", async (req, res) => {
 });
 
 
-
-
+// editors/id/edit route
 app.get("/:id/edit", async (req, res) => {
     const { id } = req.params;
     const editorId = parseInt(id);
@@ -54,8 +53,6 @@ app.get("/:id/edit", async (req, res) => {
 
     res.render("editors/edit", { editor });
 });
-
-
 
 app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;
@@ -72,21 +69,17 @@ app.post("/:id/edit", async (req, res) => {
 });
 
 
-
+// editors/id/delete route
 app.post("/:id/delete", async (req, res) => {
     const { id } = req.params;
     const editorId = parseInt(id);
 
     await prisma.game.deleteMany({
-        where: {
-            editorId: editorId,
-        },
+        where: { editorId: editorId },
     });
 
     await prisma.editor.delete({
-        where: {
-            id: editorId,
-        },
+        where: { id: editorId },
     });
 
     res.redirect('/editors');

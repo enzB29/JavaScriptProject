@@ -1,182 +1,295 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #ffffff; /* Overall page background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Centered Content Wrapper */
+.content-wrapper {
+    width: 90%;
+    max-width: 800px;
+    background-color: #f8f9fa; /* Subtle off-white for content area */
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6; /* Light gray border */
 }
 
 /* Header Styles */
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
+    background-color: #2a9d8f; /* Soft teal */
+    color: #ffffff;
+    padding: 0.8rem; /* Padding for height */
     text-align: center;
+    margin-bottom: 1.5rem; /* Space between header and content */
+    border-bottom: 4px solid #21867a; /* Darker teal for border */
+    width: 90%; /* Match content width */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto; /* Centering header */
+    border-radius: 8px; /* Rounded corners */
 }
 
 header h2 {
     margin: 0;
+    font-size: 2.4rem; /* Increased font size */
+    font-weight: bold;
+    line-height: 1.2; /* Ensures good spacing between lines if text wraps */
+    padding: 1rem;
 }
 
+
 header a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 18px;
-    margin: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 header a:hover {
     text-decoration: underline;
 }
 
-/* Layout Styles */
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-h2 {
-    color: #555;
-}
-
-/* Form Styles */
-form {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-input[type="text"],
-input[type="date"],
-textarea,
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-textarea {
-    height: 120px;
-}
-
+/* Buttons */
 button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px;
 }
 
+/* Feature/Unfeature Button */
+.feature-btn {
+    background-color: #38b000; /* Vivid green */
+    color: #ffffff;
+}
+
+.feature-btn:hover {
+    background-color: #2d9300; /* Darker green */
+}
+
+/* Delete Button */
+button[type="submit"] {
+    background-color: #ff6b6b; /* Soft red */
+    color: #ffffff;
+}
+
+button[type="submit"]:hover {
+    background-color: #d9534f; /* Darker red */
+}
+
+/* Neutral Button (e.g., Cancel, Modify) */
+button[type="button"] {
+    background-color: #6c757d; /* Cool gray */
+    color: #ffffff;
+}
+
+button[type="button"]:hover {
+    background-color: #5a6268; /* Darker gray */
+}
+
+/* General Button Hover Effect */
 button:hover {
-    background-color: #45a049;
-}
-
-a button {
-    background-color: #f44336;
-}
-
-a button:hover {
-    background-color: #e53935;
+    transform: translateY(-2px); /* Subtle lift effect */
 }
 
 /* Links */
 a {
-    color: #007bff;
+    color: #2a9d8f;
     text-decoration: none;
-    font-size: 16px;
+    font-weight: bold;
+    margin: 0.5rem 0;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #21867a;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+form label {
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: #2a9d8f;
+    outline: none;
 }
 
 /* Lists */
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 1rem auto;
 }
 
-li {
-    background-color: #fff;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+ul li {
+    background: #ffffff; /* White background for list items */
+    margin: 0.5rem auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
 }
 
-li a {
+ul li:hover {
+    transform: scale(1.03);
+}
+
+ul li a {
+    font-weight: bold;
+    color: #2a9d8f;
+}
+
+ul li a:hover {
+    color: #21867a;
+}
+
+/* Titles */
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #264653; /* Dark teal */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: semi-bold;
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #666;
+    padding: 1rem;
+}
+
+footer a {
+    color: #2a9d8f;
+}
+
+footer a:hover {
+    color: #21867a;
+}
+
+/* Game Details Wrapper */
+.game-details-wrapper {
+    width: 90%;
+    max-width: 800px;
+    background-color: #f8f9fa; /* Light gray */
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Game Title */
+.game-title {
+    font-size: 2.5rem;
+    color: #264653; /* Dark teal */
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+/* Game Details */
+.game-details {
+    text-align: left;
+    line-height: 1.6;
     color: #333;
-    font-size: 18px;
+    margin: 1.5rem 0;
 }
 
-li a:hover {
-    text-decoration: underline;
+.game-info {
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
-/* Game List Specific Styles */
-#game-list li {
+.game-info strong {
+    color: #2a9d8f; /* Teal for emphasis */
+}
+
+/* Game Actions Buttons */
+.game-actions {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
-#game-list form {
+.modify-btn {
+    background-color: #2a9d8f; /* Teal */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modify-btn:hover {
+    background-color: #21867a; /* Darker teal */
+}
+
+.back-link {
     display: inline-block;
-    margin-left: 10px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #e9ecef; /* Light gray */
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#game-list label {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-/* Featured Game Checkbox */
-input[type="checkbox"] {
-    margin: 0 5px;
-}
-
-/* Buttons - Add Game, Add Editor, etc */
-button[type="button"], 
-button[type="submit"] {
-    margin-top: 20px;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    form {
-        padding: 15px;
-        width: 90%;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    button {
-        padding: 8px 12px;
-    }
-
-    #game-list li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.back-link:hover {
+    background-color: #f8f9fa; /* Slightly lighter gray */
+    color: #2a9d8f; /* Teal text */
 }

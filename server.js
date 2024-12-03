@@ -14,12 +14,13 @@ const editorRoutes = require("./routes/editorRoutes");
 const genreRoutes = require("./routes/genreRoutes");
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 // Handlebars config for Express
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 hbs.registerPartials(path.join(__dirname, "views/partials"));
-app.use(express.static('public'));
+
 
 // routes use
 app.use("/games", gameRoutes);

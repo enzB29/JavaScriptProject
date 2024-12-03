@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 
+// seed to insert data into the database
 async function seed() {
   const genreNames = ['Action', 'Adventure', 'RPG', 'Simulation', 'Sport', 'MMORPG'];
 

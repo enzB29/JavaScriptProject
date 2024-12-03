@@ -1,4 +1,4 @@
-<h1>List of Editors</h1>
+<h1>List of editors</h1>
 
 <ul id="editor-list">
     {{#each editors}}
@@ -6,16 +6,16 @@
             <a href="/editors/{{id}}/games" class="editor-name">
                 {{name}}
             </a>
-            <form action="/editors/{{id}}/delete" method="POST" style="display:inline;">
-                <button type="submit">Delete</button>
-            </form>
             <a href="/editors/{{id}}/edit">
                 <button type="button">Modify</button>
             </a>
+            <form action="/editors/{{id}}/delete" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
         </li>
     {{/each}}
 </ul>
 
 <a href="/editors/new">
-    <button>Add Editor</button>
+    <button>Add editor</button>
 </a>
