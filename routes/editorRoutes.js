@@ -33,10 +33,15 @@ app.post("/", async (req, res) => {
 
 app.post("/:id/delete", async (req, res) => {
     const { id } = req.params;
+    const editorId = parseInt(id);
+
+    await prisma.game.deleteMany({
+        where : {editorId : editorId}
+    })//delete le tous les jeux de l'éditor si l'éditor est delete.
     await prisma.editor.delete({
         where: { id: parseInt(id) },
     });
-
+    
     res.redirect('/editors');
 });
 
