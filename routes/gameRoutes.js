@@ -20,7 +20,7 @@ app.post("/", async (req, res) => {
         data: {
             name,
             description,
-            releaseDate: new Date(releaseDate),
+            releaseDate,
             genre: {
                 connect: { id: parseInt(genreId) }
             },
@@ -106,7 +106,7 @@ app.post("/:id/edit", async (req, res) => {
         data: {
             name,
             description,
-            releaseDate: new Date(releaseDate),
+            releaseDate,
             genre: {
                 connect: { id: parseInt(genreId) }
             },

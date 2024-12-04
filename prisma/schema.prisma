@@ -17,7 +17,7 @@ model Game {
   id Int @id @default(autoincrement()) // primary key
   name String
   description String
-  releaseDate DateTime
+  releaseDate String
   featured   Boolean   @default(false) // mis en avant
   genreId Int // foreign key
   genre Genre @relation(fields: [genreId], references: [id]) // reference
