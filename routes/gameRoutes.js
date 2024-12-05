@@ -59,7 +59,7 @@ app.get("/:id/details", async (req, res) => {
         }
     });
     res.render("games/details", { game });
-});//get all the details of one game
+});//get all the details of one game with the id
 
 
 // games/id/edit route
@@ -93,7 +93,7 @@ app.get("/:id/edit", async (req, res) => {
         genres: genresWithSelectedFlag,
         editors: editorsWithSelectedFlag
     });
-});//get all the editable games and goes to the page to edit them
+});//get all information of one game so we can edit him 
 
 app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;

@@ -20,13 +20,13 @@ app.post("/", async (req, res) => {
         data: { name }
     });
     res.redirect("/editors");
-});// this route is to post a new editor 
+});// this route is to post a new editor in the database
 
 
 // editors/new route
 app.get('/new', async (req, res) => {
     res.render("editors/new");
-});
+});//this will show the form
 
 
 // editors/id/games route
@@ -66,7 +66,7 @@ app.post("/:id/edit", async (req, res) => {
 
     res.redirect("/editors");
 
-});//this road is to write the editing on the database
+});//this route is to write the editing on the database
 
 
 // editors/id/delete route
@@ -83,7 +83,7 @@ app.post("/:id/delete", async (req, res) => {
     });
 
     res.redirect('/editors');
-});// this road is to delete one editor one the database.
+});// this route is to delete one editor one the database.
 
 
 

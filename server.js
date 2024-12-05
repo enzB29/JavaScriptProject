@@ -38,7 +38,7 @@ app.get("/", async (req, res) => {
     res.render("index", { featuredGames });
 });
 
-
+//verify on the console if the server is enable
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

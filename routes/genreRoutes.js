@@ -24,7 +24,7 @@ app.get("/:id/games", async (req, res) => {
     });
 
     res.render("genres/games", { genre });
-});//get all the game of one genrees enad render them
+});//get all the game of one genres end render them
 
 
 
