@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
     res.render("genres/index", {
         genres,
     });
-});
+});//get all the genres and render them
 
 // genres/id/games route
 app.get("/:id/games", async (req, res) => {
@@ -24,7 +24,7 @@ app.get("/:id/games", async (req, res) => {
     });
 
     res.render("genres/games", { genre });
-});
+});//get all the game of one genrees enad render them
 
 
 

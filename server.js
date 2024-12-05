@@ -1,3 +1,4 @@
+//define all the require on const variable
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
 const bodyParser = require("body-parser");

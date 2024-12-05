@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
     const editors = await prisma.editor.findMany();
     res.render("editors/index", {
         editors,
-    });
+    }); // this route give us all the editors in the "/" page
 });
 
 app.post("/", async (req, res) => {
@@ -20,7 +20,7 @@ app.post("/", async (req, res) => {
         data: { name }
     });
     res.redirect("/editors");
-});
+});// this route is to post a new editor 
 
 
 // editors/new route
@@ -40,7 +40,7 @@ app.get("/:id/games", async (req, res) => {
     });
 
     res.render("editors/games", { editor });
-});
+});// the route to have all information on on editor
 
 
 // editors/id/edit route
@@ -52,7 +52,7 @@ app.get("/:id/edit", async (req, res) => {
     });
 
     res.render("editors/edit", { editor });
-});
+});//the route to edit one editor
 
 app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;
@@ -66,7 +66,7 @@ app.post("/:id/edit", async (req, res) => {
 
     res.redirect("/editors");
 
-});
+});//this road is to write the editing on the database
 
 
 // editors/id/delete route
@@ -83,7 +83,7 @@ app.post("/:id/delete", async (req, res) => {
     });
 
     res.redirect('/editors');
-});
+});// this road is to delete one editor one the database.
 
 
 

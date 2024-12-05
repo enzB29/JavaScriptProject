@@ -12,7 +12,7 @@ app.get("/", async (req, res) => {
     res.render("games/index", {
         games,
     });
-});
+});//gives us all the game
 
 app.post("/", async (req, res) => {
     const { name, description, releaseDate, genreId, editorId } = req.body;
@@ -30,7 +30,7 @@ app.post("/", async (req, res) => {
         }
     });
     res.redirect("/games");
-});
+});//post all the game in the database
 
 
 // games/new route
@@ -43,7 +43,7 @@ app.get('/new', async (req, res) => {
         genres: genres,
         editors: editors
     });
-});
+});//get all the genres and all the editors to put them on the pagee "games/new"
 
 
 // games/id/details route
@@ -59,7 +59,7 @@ app.get("/:id/details", async (req, res) => {
         }
     });
     res.render("games/details", { game });
-});
+});//get all the details of one game
 
 
 // games/id/edit route
@@ -93,7 +93,7 @@ app.get("/:id/edit", async (req, res) => {
         genres: genresWithSelectedFlag,
         editors: editorsWithSelectedFlag
     });
-});
+});//get all the editable games and goes to the page to edit them
 
 app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;
@@ -117,7 +117,7 @@ app.post("/:id/edit", async (req, res) => {
     });
 
     res.redirect(`/games/${gameId}/details`);
-});
+});//post the edit in the database and goes back to the detail of the game
 
 
 // games/id/updateFeatured route
@@ -135,7 +135,7 @@ app.post("/:id/updateFeatured", async (req, res) => {
     });
 
     res.redirect("/games");
-});
+});//post if the game is feature or not in the datebase
 
 
 // games/id/delete route
@@ -145,7 +145,7 @@ app.post("/:id/delete", async (req, res) => {
         where: { id: parseInt(id) },
     });
     res.redirect('/games');
-});
+});//delete one game 
 
 
 
