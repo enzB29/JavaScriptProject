@@ -33,6 +33,7 @@ app.use("/genres", genreRoutes);
 app.get("/", async (req, res) => {
     const featuredGames = await prisma.game.findMany({
         where: { featured: true },
+        orderBy: { name: 'asc' },
     });
 
     res.render("index", { featuredGames });

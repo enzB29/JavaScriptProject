@@ -9,7 +9,9 @@ const prisma = new PrismaClient();
 // games route
 // "get" gives us all the games
 app.get("/", async (req, res) => {
-    const games = await prisma.game.findMany();
+    const games = await prisma.game.findMany({
+        orderBy: { name: 'asc' },
+    });
     res.render("games/index", {
         games,
     });
