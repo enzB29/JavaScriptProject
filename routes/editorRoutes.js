@@ -9,7 +9,9 @@ const prisma = new PrismaClient();
 // editors route
 // this route gives us all the editors in the "/" page
 app.get("/", async (req, res) => {
-    const editors = await prisma.editor.findMany();
+    const editors = await prisma.editor.findMany({
+        orderBy: { name: 'asc' },
+    });
     res.render("editors/index", {
         editors,
     });
@@ -40,7 +42,11 @@ app.get("/:id/games", async (req, res) => {
 
     const editor = await prisma.editor.findUnique({
         where: { id: editorId },
-        include: { games: true }
+        include: {
+            games: {
+                orderBy: { name: 'asc' },
+            }
+        }
     });
 
     res.render("editors/games", { editor });
