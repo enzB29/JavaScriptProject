@@ -7,29 +7,33 @@ const prisma = new PrismaClient();
 
 
 // editors route
+// this route gives us all the editors in the "/" page
 app.get("/", async (req, res) => {
     const editors = await prisma.editor.findMany();
     res.render("editors/index", {
         editors,
-    }); // this route give us all the editors in the "/" page
+    });
 });
 
+// this route is to post a new editor in the database
 app.post("/", async (req, res) => {
     const { name } = req.body;
     await prisma.editor.create({
         data: { name }
     });
     res.redirect("/editors");
-});// this route is to post a new editor in the database
+});
 
 
 // editors/new route
+// this will display the form
 app.get('/new', async (req, res) => {
     res.render("editors/new");
-});//this will show the form
+});
 
 
 // editors/id/games route
+// the route to have all information on an editor
 app.get("/:id/games", async (req, res) => {
     const { id } = req.params;
     const editorId = parseInt(id);
@@ -40,10 +44,11 @@ app.get("/:id/games", async (req, res) => {
     });
 
     res.render("editors/games", { editor });
-});// the route to have all information on on editor
+});
 
 
 // editors/id/edit route
+// the route to edit an editor
 app.get("/:id/edit", async (req, res) => {
     const { id } = req.params;
     const editorId = parseInt(id);
@@ -52,8 +57,9 @@ app.get("/:id/edit", async (req, res) => {
     });
 
     res.render("editors/edit", { editor });
-});//the route to edit one editor
+});
 
+// this route is to post the edit in the database
 app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
@@ -66,10 +72,11 @@ app.post("/:id/edit", async (req, res) => {
 
     res.redirect("/editors");
 
-});//this route is to write the editing on the database
+});
 
 
 // editors/id/delete route
+// this route is to delete an editor on the database
 app.post("/:id/delete", async (req, res) => {
     const { id } = req.params;
     const editorId = parseInt(id);
@@ -83,7 +90,7 @@ app.post("/:id/delete", async (req, res) => {
     });
 
     res.redirect('/editors');
-});// this route is to delete one editor one the database.
+});
 
 
 

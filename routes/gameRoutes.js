@@ -7,13 +7,15 @@ const prisma = new PrismaClient();
 
 
 // games route
+// "get" gives us all the games
 app.get("/", async (req, res) => {
     const games = await prisma.game.findMany();
     res.render("games/index", {
         games,
     });
-});//gives us all the game
+});
 
+// posts the games in the database
 app.post("/", async (req, res) => {
     const { name, description, releaseDate, genreId, editorId } = req.body;
     await prisma.game.create({
@@ -30,10 +32,11 @@ app.post("/", async (req, res) => {
         }
     });
     res.redirect("/games");
-});//post all the game in the database
+});
 
 
 // games/new route
+// gets all the genres and all the editors to put them on the page "games/new"
 app.get('/new', async (req, res) => {
     // to fetch genres and editors (useful for the form)
     const genres = await prisma.genre.findMany();
@@ -43,10 +46,11 @@ app.get('/new', async (req, res) => {
         genres: genres,
         editors: editors
     });
-});//get all the genres and all the editors to put them on the pagee "games/new"
+});
 
 
 // games/id/details route
+// get all the details of one game with its id
 app.get("/:id/details", async (req, res) => {
     const { id } = req.params;
     const gameId = parseInt(id);
@@ -59,10 +63,11 @@ app.get("/:id/details", async (req, res) => {
         }
     });
     res.render("games/details", { game });
-});//get all the details of one game with the id
+});
 
 
 // games/id/edit route
+// gets all information of one game so we can edit it 
 app.get("/:id/edit", async (req, res) => {
     const { id } = req.params;
     const gameId = parseInt(id);
@@ -93,8 +98,9 @@ app.get("/:id/edit", async (req, res) => {
         genres: genresWithSelectedFlag,
         editors: editorsWithSelectedFlag
     });
-});//get all information of one game so we can edit him 
+});
 
+// posts the edit in the database and goes back to the detail of the game
 app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;
     const { name, description, releaseDate, genreId, editorId } = req.body;
@@ -117,10 +123,11 @@ app.post("/:id/edit", async (req, res) => {
     });
 
     res.redirect(`/games/${gameId}/details`);
-});//post the edit in the database and goes back to the detail of the game
+});
 
 
 // games/id/updateFeatured route
+// posts if the game is featured or not in the database
 app.post("/:id/updateFeatured", async (req, res) => {
     const { id } = req.params;
     const gameId = parseInt(id);
@@ -135,17 +142,18 @@ app.post("/:id/updateFeatured", async (req, res) => {
     });
 
     res.redirect("/games");
-});//post if the game is feature or not in the datebase
+});
 
 
 // games/id/delete route
+// deletes a game
 app.post("/:id/delete", async (req, res) => {
     const { id } = req.params;
     await prisma.game.delete({
         where: { id: parseInt(id) },
     });
     res.redirect('/games');
-});//delete one game 
+});
 
 
 

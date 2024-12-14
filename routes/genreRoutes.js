@@ -6,14 +6,16 @@ const prisma = new PrismaClient();
 
 
 // genres route
+// gets all the genres and displays them
 app.get("/", async (req, res) => {
     const genres = await prisma.genre.findMany();
     res.render("genres/index", {
         genres,
     });
-});//get all the genres and render them
+});
 
 // genres/id/games route
+// gets all the games of one genre and display them
 app.get("/:id/games", async (req, res) => {
     const { id } = req.params;
 
@@ -24,7 +26,7 @@ app.get("/:id/games", async (req, res) => {
     });
 
     res.render("genres/games", { genre });
-});//get all the game of one genres end render them
+});
 
 
 
