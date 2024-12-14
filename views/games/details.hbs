@@ -9,10 +9,12 @@
             <strong>Release date:</strong> {{game.releaseDate}}
         </p>
         <p class="game-info">
-            <strong>Genre:</strong> {{game.genre.name}}
+            <strong>Genre:</strong>
+            <a href="/genres/{{game.genre.id}}/games">{{game.genre.name}}</a>
         </p>
         <p class="game-info">
-            <strong>Editor:</strong> {{game.editor.name}}
+            <strong>Editor:</strong>
+            <a href="/editors/{{game.editor.id}}/games">{{game.editor.name}}</a>
         </p>
     </div>
 
