@@ -250,9 +250,6 @@ footer a:hover {
     font-size: 1rem;
 }
 
-.game-info strong {
-    color: #2a9d8f; /* Teal for emphasis */
-}
 
 /* Game Actions Buttons */
 .game-actions {
