@@ -24,7 +24,7 @@ L'application Vapeur permet :
 
 Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-installés :
 
-- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
+- [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 
 ## Installation
