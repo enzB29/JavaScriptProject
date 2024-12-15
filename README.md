@@ -29,48 +29,47 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-install
 
 ## Installation
 
-1. Clonez le dépôt Git :
+1. **Clonez le dépôt Git** :
 
    ```bash
    git clone <URL_DU_DEPOT>
    cd Vapeur
    ```
 
-2. Installez les dépendances :
+2. **Installez les dépendances** :
 
    ```bash
    npm install
    ```
 
-3. Configurez la base de données avec Prisma :
+3. **Créez un fichier `.env`** à la racine du projet pour configurer vos variables d'environnement :
 
-   - Initialisez Prisma :
+   ```env
+   DATABASE_URL="file:./prisma/database.db"
+   PORT=3000
+   ```
 
-     ```bash
-     npx prisma init
-     ```
+4. **Configurez Prisma** :
 
-   - Modifiez le fichier `prisma/schema.prisma` si nécessaire (le fichier par défaut est configuré pour SQLite).
-
-   - Appliquez les migrations :
-
+   - Initialisez la base de données et appliquez les migrations :
+     
      ```bash
      npx prisma migrate dev --name init
      ```
 
-   - Seed la base de données avec les genres par défaut (Action, Aventure, RPG, etc.) :
-
+   - Seed les genres par défaut dans la base de données :
+     
      ```bash
      npm run seed
      ```
 
-4. Lancez le serveur de développement :
+5. **Lancez le serveur** :
 
    ```bash
    npm start
    ```
 
-5. Accédez à l'application dans votre navigateur à l'adresse :
+6. **Accédez à l'application** dans votre navigateur :
 
    ```
    http://localhost:3000
