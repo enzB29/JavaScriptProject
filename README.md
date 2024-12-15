@@ -33,7 +33,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-install
 
    ```bash
    git clone <URL_DU_DEPOT>
-   cd Vapeur
+   cd JavaScriptProject
    ```
 
 2. **Installez les dépendances** :
