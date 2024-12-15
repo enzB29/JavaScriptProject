@@ -1,3 +1,15 @@
-node_modules
-# Keep environment variables out of version control
+# Node modules
+node_modules/
+
+# Prisma
+prisma/database.db
+prisma/migrations/
+
+# Variables d'environnement
 .env
+
+# Logs
+*.log
+
+# Cache
+.cache/
