@@ -57,7 +57,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-install
      npx prisma migrate dev --name init
      ```
 
-   - Seed les genres par défaut dans la base de données :
+   - Ajoutez des genres et éditeurs par défaut dans la base de données à l'aide d'une seed :
      
      ```bash
      npm run seed
