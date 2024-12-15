@@ -1,0 +1,125 @@
+# Vapeur
+
+Vapeur est une application web dynamique permettant de gérer une collection de jeux vidéo. Ce projet utilise Express.js pour le backend, Prisma pour la gestion de la base de données SQLite, et Handlebars comme moteur de templates.
+
+## Fonctionnalités principales
+
+L'application Vapeur permet :
+
+1. **Gestion des jeux** :
+   - Création, modification et suppression de jeux.
+   - Affichage des détails d'un jeu, incluant son titre, description, date de sortie, genre et éditeur.
+   - Possibilité de mettre en avant certains jeux sur la page d'accueil.
+
+2. **Gestion des genres de jeux** :
+   - Affichage de la liste des genres.
+   - Visualisation des jeux associés à un genre.
+
+3. **Gestion des éditeurs de jeux** :
+   - Création, modification et suppression d'éditeurs.
+   - Affichage de la liste des éditeurs.
+   - Visualisation des jeux associés à un éditeur.
+
+## Pré-requis
+
+Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-installés :
+
+- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
+- [npm](https://www.npmjs.com/)
+
+## Installation
+
+1. Clonez le dépôt Git :
+
+   ```bash
+   git clone <URL_DU_DEPOT>
+   cd Vapeur
+   ```
+
+2. Installez les dépendances :
+
+   ```bash
+   npm install
+   ```
+
+3. Configurez la base de données avec Prisma :
+
+   - Initialisez Prisma :
+
+     ```bash
+     npx prisma init
+     ```
+
+   - Modifiez le fichier `prisma/schema.prisma` si nécessaire (le fichier par défaut est configuré pour SQLite).
+
+   - Appliquez les migrations :
+
+     ```bash
+     npx prisma migrate dev --name init
+     ```
+
+   - Seed la base de données avec les genres par défaut (Action, Aventure, RPG, etc.) :
+
+     ```bash
+     npm run seed
+     ```
+
+4. Lancez le serveur de développement :
+
+   ```bash
+   npm start
+   ```
+
+5. Accédez à l'application dans votre navigateur à l'adresse :
+
+   ```
+   http://localhost:3000
+   ```
+
+## Structure du projet
+
+```
+Vapeur/
+├── prisma/                 # Fichiers Prisma pour la base de données
+│   ├── migrations/         # Migrations Prisma
+│   ├── prisma/             # Configuration de Prisma
+│   ├── database.db         # Base de données SQLite
+│   ├── schema.prisma       # Définition du schéma de la base de données
+│   └── seed.js             # Fichier pour initialiser les données de base
+├── public/                 # Fichiers statiques (CSS, JS, images)
+│   └── css/
+│       └── global.css      # Styles globaux
+├── routes/                 # Définition des routes Express.js
+│   ├── editorRoutes.js     # Routes pour les éditeurs
+│   ├── gameRoutes.js       # Routes pour les jeux
+│   └── genreRoutes.js      # Routes pour les genres
+├── views/                  # Templates Handlebars (hbs)
+│   ├── editors/            # Templates pour les éditeurs
+│   │   ├── edit.hbs        # Formulaire d'édition
+│   │   ├── games.hbs       # Liste des jeux d'un éditeur
+│   │   ├── index.hbs       # Liste des éditeurs
+│   │   └── new.hbs         # Formulaire de création
+│   ├── games/              # Templates pour les jeux
+│   │   ├── details.hbs     # Détails d'un jeu
+│   │   ├── edit.hbs        # Formulaire d'édition
+│   │   ├── index.hbs       # Liste des jeux
+│   │   └── new.hbs         # Formulaire de création
+│   ├── genres/             # Templates pour les genres
+│   │   ├── games.hbs       # Liste des jeux d'un genre
+│   │   └── index.hbs       # Liste des genres
+│   └── partials/           # Templates partiels pour les vues
+│       ├── header.hbs      # En-tête de l'application
+│       ├── index.hbs       # Vue partielle pour l'index
+│       └── layout.hbs      # Layout principal
+├── .env                    # Variables d'environnement
+├── .gitignore              # Fichiers à ignorer dans Git
+├── package-lock.json       # Fichier de verrouillage des dépendances
+├── package.json            # Dépendances et scripts npm
+├── README.md               # Documentation du projet
+└── server.js               # Point d'entrée du serveur Express
+```
+
+
+---
+
+Merci d'utiliser Vapeur !
