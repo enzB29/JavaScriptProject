@@ -46,7 +46,6 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-install
 
    ```env
    DATABASE_URL="file:./prisma/database.db"
-   PORT=3000
    ```
 
 4. **Configurez Prisma** :
