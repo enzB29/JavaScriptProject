@@ -77,7 +77,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-install
 ## Structure du projet
 
 ```
-Vapeur/
+Vapeur_Detournay_Bordet/
 ├── prisma/                 # Fichiers Prisma pour la base de données
 │   ├── migrations/         # Migrations Prisma
 │   ├── prisma/             # Configuration de Prisma
