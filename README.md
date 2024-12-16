@@ -116,4 +116,6 @@ Vapeur_Detournay_Bordet/
 
 ---
 
+Fait par Enzo Bordet et Corentin Detournay.
+
 Merci d'utiliser Vapeur !
