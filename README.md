@@ -1,121 +1,123 @@
 # Vapeur
 
-Vapeur est une application web dynamique permettant de gérer une collection de jeux vidéo. Ce projet utilise Express.js pour le backend, Prisma pour la gestion de la base de données SQLite, et Handlebars comme moteur de templates.
+Vapeur is a dynamic web application for managing a video game collection. This project uses Express.js for the backend, Prisma for database management with SQLite, and Handlebars as the templating engine.
 
-## Fonctionnalités principales
+## Main Features
 
-L'application Vapeur permet :
+The Vapeur application allows:
 
-1. **Gestion des jeux** :
-   - Création, modification et suppression de jeux.
-   - Affichage des détails d'un jeu, incluant son titre, description, date de sortie, genre et éditeur.
-   - Possibilité de mettre en avant certains jeux sur la page d'accueil.
+1. **Game Management**:
+   - Create, edit, and delete games.
+   - Display game details, including title, description, release date, genre, and publisher.
+   - Highlight certain games on the homepage.
 
-2. **Gestion des genres de jeux** :
-   - Affichage de la liste des genres.
-   - Visualisation des jeux associés à un genre.
+2. **Game Genre Management**:
+   - View a list of genres.
+   - See games associated with a specific genre.
 
-3. **Gestion des éditeurs de jeux** :
-   - Création, modification et suppression d'éditeurs.
-   - Affichage de la liste des éditeurs.
-   - Visualisation des jeux associés à un éditeur.
+3. **Game Publisher Management**:
+   - Create, edit, and delete publishers.
+   - View a list of publishers.
+   - See games associated with a specific publisher.
 
-## Pré-requis
+## Prerequisites
 
-Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-installés :
+Before starting, ensure the following are pre-installed:
 
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 
 ## Installation
 
-1. **Clonez le dépôt Git** :
+1. **Clone the Git repository**:
 
    ```bash
-   git clone <URL_DU_DEPOT>
+   git clone <REPO_URL>
    cd Vapeur_Detournay_Bordet
+
    ```
 
-2. **Installez les dépendances** :
+2. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-3. **Créez un fichier `.env`** à la racine du projet pour configurer vos variables d'environnement :
+3. **Create a `.env` file** at the root of the project to configure environment variables:
 
    ```env
    DATABASE_URL="file:./prisma/database.db"
    ```
 
-4. **Configurez Prisma** :
+4. **Configure Prisma** :
 
-   - Initialisez la base de données et appliquez les migrations :
+   - Initialize the database and apply migrations:
      
      ```bash
      npx prisma migrate dev --name init
      ```
 
-   - Ajoutez des genres et éditeurs par défaut dans la base de données à l'aide d'une seed :
+   - Seed the database with default genres and publishers:
      
      ```bash
      npm run seed
      ```
 
-5. **Lancez le serveur** :
+5. **Start the server** :
 
    ```bash
    npm start
    ```
 
-6. **Accédez à l'application** dans votre navigateur :
+6. **Access the application** in your browser:
 
    ```
    http://localhost:3000
    ```
 
-## Structure du projet
+## Project Structure
 
 ```
 Vapeur_Detournay_Bordet/
-├── prisma/                 # Fichiers Prisma
-│   ├── schema.prisma          # Définition du schéma de la base de données
-│   └── seed.js                # Fichier pour initialiser les données de base
-├── public/                 # Fichiers statiques
+├── prisma/                 # Prisma files
+│   ├── schema.prisma          # Database schema definition
+│   └── seed.js                # File to initialize default data
+├── public/                 # Static files
 │   └── css/
-│       └── global.css            # Fichier CSS
-├── routes/                 # Définition des routes
-│   ├── editorRoutes.js        # Routes pour les éditeurs
-│   ├── gameRoutes.js          # Routes pour les jeux
-│   └── genreRoutes.js         # Routes pour les genres
-├── views/                  # Templates hbs
-│   ├── editors/               # Templates pour les éditeurs
-│   │   ├── edit.hbs              # Formulaire d'édition
-│   │   ├── games.hbs             # Liste des jeux d'un éditeur
-│   │   ├── index.hbs             # Liste des éditeurs
-│   │   └── new.hbs               # Formulaire de création
-│   ├── games/                 # Templates pour les jeux
-│   │   ├── details.hbs           # Détails d'un jeu
-│   │   ├── edit.hbs              # Formulaire d'édition
-│   │   ├── index.hbs             # Liste des jeux
-│   │   └── new.hbs               # Formulaire de création
-│   ├── genres/                # Templates pour les genres
-│   │   ├── games.hbs             # Liste des jeux d'un genre
-│   │   └── index.hbs             # Liste des genres
-│   └── partials/              # Templates partials
+│       └── global.css            # CSS file
+├── routes/                 # Route definitions
+│   ├── editorRoutes.js        # Routes for publishers
+│   ├── gameRoutes.js          # Routes for games
+│   └── genreRoutes.js         # Routes for genres
+├── views/                  # Handlebars templates
+│   ├── editors/               # Templates for publishers
+│   │   ├── edit.hbs              # Edit form
+│   │   ├── games.hbs             # List of a publisher's games
+│   │   ├── index.hbs             # List of publishers
+│   │   └── new.hbs               # Creation form
+│   ├── games/                 # Templates for games
+│   │   ├── details.hbs           # Game details
+│   │   ├── edit.hbs              # Edit form
+│   │   ├── index.hbs             # List of games
+│   │   └── new.hbs               # Creation form
+│   ├── genres/                # Templates for genres
+│   │   ├── games.hbs             # List of a genre's games
+│   │   └── index.hbs             # List of genres
+│   └── partials/              # Partial templates
 │       ├── header.hbs            
 │       ├── index.hbs             
-│       └── layout.hbs            # Layout principal
-├── .gitignore              # Fichiers à ignorer dans Git
+│       └── layout.hbs            # Main layout
+├── .gitignore              # Files to ignore in Git
 ├── package-lock.json       
-├── package.json            # Dépendances et scripts npm
-├── README.md               # Documentation du projet
-└── server.js               # Serveur Express
+├── package.json            # Dependencies and npm scripts
+├── README.md               # Project documentation
+└── server.js               # Express server
+
 ```
 
 
 ---
 
-Fait par Enzo Bordet et Corentin Detournay.
+Created by Corentin Detournay and Enzo Bordet.
 
-Merci d'utiliser Vapeur !
+Thank you for using Vapeur!
