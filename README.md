@@ -78,43 +78,39 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-install
 
 ```
 Vapeur_Detournay_Bordet/
-├── prisma/                 # Fichiers Prisma pour la base de données
-│   ├── migrations/         # Migrations Prisma
-│   ├── prisma/             # Configuration de Prisma
-│   ├── database.db         # Base de données SQLite
-│   ├── schema.prisma       # Définition du schéma de la base de données
-│   └── seed.js             # Fichier pour initialiser les données de base
-├── public/                 # Fichiers statiques (CSS, JS, images)
+├── prisma/                 # Fichiers Prisma
+│   ├── schema.prisma          # Définition du schéma de la base de données
+│   └── seed.js                # Fichier pour initialiser les données de base
+├── public/                 # Fichiers statiques
 │   └── css/
-│       └── global.css      # Styles globaux
-├── routes/                 # Définition des routes Express.js
-│   ├── editorRoutes.js     # Routes pour les éditeurs
-│   ├── gameRoutes.js       # Routes pour les jeux
-│   └── genreRoutes.js      # Routes pour les genres
-├── views/                  # Templates Handlebars (hbs)
-│   ├── editors/            # Templates pour les éditeurs
-│   │   ├── edit.hbs        # Formulaire d'édition
-│   │   ├── games.hbs       # Liste des jeux d'un éditeur
-│   │   ├── index.hbs       # Liste des éditeurs
-│   │   └── new.hbs         # Formulaire de création
-│   ├── games/              # Templates pour les jeux
-│   │   ├── details.hbs     # Détails d'un jeu
-│   │   ├── edit.hbs        # Formulaire d'édition
-│   │   ├── index.hbs       # Liste des jeux
-│   │   └── new.hbs         # Formulaire de création
-│   ├── genres/             # Templates pour les genres
-│   │   ├── games.hbs       # Liste des jeux d'un genre
-│   │   └── index.hbs       # Liste des genres
-│   └── partials/           # Templates partiels pour les vues
-│       ├── header.hbs      # En-tête de l'application
-│       ├── index.hbs       # Vue partielle pour l'index
-│       └── layout.hbs      # Layout principal
-├── .env                    # Variables d'environnement
+│       └── global.css            # Fichier CSS
+├── routes/                 # Définition des routes
+│   ├── editorRoutes.js        # Routes pour les éditeurs
+│   ├── gameRoutes.js          # Routes pour les jeux
+│   └── genreRoutes.js         # Routes pour les genres
+├── views/                  # Templates hbs
+│   ├── editors/               # Templates pour les éditeurs
+│   │   ├── edit.hbs              # Formulaire d'édition
+│   │   ├── games.hbs             # Liste des jeux d'un éditeur
+│   │   ├── index.hbs             # Liste des éditeurs
+│   │   └── new.hbs               # Formulaire de création
+│   ├── games/                 # Templates pour les jeux
+│   │   ├── details.hbs           # Détails d'un jeu
+│   │   ├── edit.hbs              # Formulaire d'édition
+│   │   ├── index.hbs             # Liste des jeux
+│   │   └── new.hbs               # Formulaire de création
+│   ├── genres/                # Templates pour les genres
+│   │   ├── games.hbs             # Liste des jeux d'un genre
+│   │   └── index.hbs             # Liste des genres
+│   └── partials/              # Templates partials
+│       ├── header.hbs            
+│       ├── index.hbs             
+│       └── layout.hbs            # Layout principal
 ├── .gitignore              # Fichiers à ignorer dans Git
-├── package-lock.json       # Fichier de verrouillage des dépendances
+├── package-lock.json       
 ├── package.json            # Dépendances et scripts npm
 ├── README.md               # Documentation du projet
-└── server.js               # Point d'entrée du serveur Express
+└── server.js               # Serveur Express
 ```
 
 
