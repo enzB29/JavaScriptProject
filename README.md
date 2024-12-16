@@ -33,7 +33,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants de pré-install
 
    ```bash
    git clone <URL_DU_DEPOT>
-   cd JavaScriptProject
+   cd Vapeur_Detournay_Bordet
    ```
 
 2. **Installez les dépendances** :
